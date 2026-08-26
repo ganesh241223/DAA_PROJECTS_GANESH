@@ -1,0 +1,76 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int knapsack(int capacity, vector<int>& weight, vector<int>& value, int n)
+{
+    vector<int> dp(capacity + 1, 0);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int w = capacity; w >= weight[i]; w--)
+        {
+            int take = value[i] + dp[w - weight[i]];
+
+            if (take > dp[w])
+            {
+                dp[w] = take;
+            }
+        }
+    }
+
+    return dp[capacity];
+}
+
+int main()
+{
+    int n, capacity;
+
+    cout << "Enter number of items: ";
+    cin >> n;
+
+    vector<int> weight(n);
+    vector<int> value(n);
+
+    cout << "Enter weights of items:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> weight[i];
+    }
+
+    cout << "Enter values of items:\n";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> value[i];
+    }
+
+    cout << "Enter knapsack capacity: ";
+    cin >> capacity;
+
+    int answer = knapsack(capacity, weight, value, n);
+
+    cout << "\nMaximum value = " << answer << endl;
+
+    return 0;
+}
+
+
+Enter number of items: 5
+Enter weights of items:
+9
+6
+3
+8
+5
+Enter values of items:
+2
+7
+4
+1
+9
+Enter knapsack capacity: 8
+
+Maximum value = 13
+
+
+=== Code Execution Successful ===
