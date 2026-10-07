@@ -1,0 +1,107 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct Edge
+{
+    int u, v, weight;
+};
+
+int parent[100];
+
+int findParent(int vertex)
+{
+    if (parent[vertex] == vertex)
+        return vertex;
+
+    return parent[vertex] = findParent(parent[vertex]);
+}
+
+void unionSet(int u, int v)
+{
+    int parentU = findParent(u);
+    int parentV = findParent(v);
+
+    parent[parentU] = parentV;
+}
+
+bool compare(Edge a, Edge b)
+{
+    return a.weight < b.weight;
+}
+
+int main()
+{
+    int V, E;
+
+    cout << "Enter number of vertices: ";
+    cin >> V;
+
+    cout << "Enter number of edges: ";
+    cin >> E;
+
+    Edge edges[100];
+
+    cout << "Enter edges (source destination weight):\n";
+
+    for (int i = 0; i < E; i++)
+    {
+        cin >> edges[i].u
+            >> edges[i].v
+            >> edges[i].weight;
+    }
+
+    sort(edges, edges + E, compare);
+
+    for (int i = 0; i < V; i++)
+    {
+        parent[i] = i;
+    }
+
+    int totalCost = 0;
+    int edgeCount = 0;
+
+    cout << "\nEdges in Minimum Spanning Tree:\n";
+
+    for (int i = 0; i < E && edgeCount < V - 1; i++)
+    {
+        int u = edges[i].u;
+        int v = edges[i].v;
+
+        if (findParent(u) != findParent(v))
+        {
+            cout << u << " - " << v
+                 << " : " << edges[i].weight << endl;
+
+            totalCost += edges[i].weight;
+
+            unionSet(u, v);
+
+            edgeCount++;
+        }
+    }
+
+    cout << "\nMinimum Cost = " << totalCost << endl;
+
+    return 0;
+}
+
+OUTPUT:
+
+Enter number of vertices: 2
+Enter number of edges: 3
+Enter edges (source destination weight):
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Edges in Minimum Spanning Tree:
+1 - 2 : 3
+
+Minimum Cost = 3
