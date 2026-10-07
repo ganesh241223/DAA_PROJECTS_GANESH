@@ -1,0 +1,99 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main()
+{
+    int n;
+
+    cout << "Enter number of vertices: ";
+    cin >> n;
+
+    int graph[100][100];
+
+    cout << "Enter adjacency matrix:\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> graph[i][j];
+        }
+    }
+
+    int key[100];
+    int parent[100];
+    bool selected[100];
+
+    for (int i = 0; i < n; i++)
+    {
+        key[i] = INT_MAX;
+        selected[i] = false;
+    }
+
+    key[0] = 0;
+    parent[0] = -1;
+
+    for (int count = 0; count < n - 1; count++)
+    {
+        int minValue = INT_MAX;
+        int u = -1;
+
+        for (int i = 0; i < n; i++)
+        {
+            if (!selected[i] && key[i] < minValue)
+            {
+                minValue = key[i];
+                u = i;
+            }
+        }
+
+        selected[u] = true;
+
+        for (int v = 0; v < n; v++)
+        {
+            if (graph[u][v] != 0 &&
+                !selected[v] &&
+                graph[u][v] < key[v])
+            {
+                parent[v] = u;
+                key[v] = graph[u][v];
+            }
+        }
+    }
+
+    int totalCost = 0;
+
+    cout << "\nEdge\tWeight\n";
+
+    for (int i = 1; i < n; i++)
+    {
+        cout << parent[i] << " - " << i
+             << "\t" << graph[i][parent[i]] << endl;
+
+        totalCost += graph[i][parent[i]];
+    }
+
+    cout << "\nMinimum Cost = " << totalCost;
+
+    return 0;
+}
+
+OUTPUT:
+Enter number of vertices: 3
+Enter adjacency matrix:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Edge	Weight
+0 - 1	4
+0 - 2	7
+
+Minimum Cost = 11
