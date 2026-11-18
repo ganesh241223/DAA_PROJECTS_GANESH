@@ -1,3 +1,5 @@
+// This program solves the Travelling Salesman Problem (TSP) using Dynamic Programming
+// with Bitmasking to find the minimum cost of visiting all cities exactly once and returning to the starting city.
 
 #include <iostream>
 #include <algorithm>
