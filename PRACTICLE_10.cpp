@@ -1,3 +1,5 @@
+// This program implements Kruskal's Algorithm using Disjoint Set Union (DSU)
+// to find the Minimum Spanning Tree (MST) and calculate its minimum total cost.
 #include <iostream>
 #include <algorithm>
 using namespace std;
