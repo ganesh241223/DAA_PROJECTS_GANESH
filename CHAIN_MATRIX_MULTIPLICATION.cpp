@@ -1,3 +1,4 @@
+//To find the minimum number of scalar multiplications required to multiply a chain of matrices using Dynamic Programming
 #include <iostream>
 #include <climits>
 using namespace std;
