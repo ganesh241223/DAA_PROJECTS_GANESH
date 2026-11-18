@@ -1,3 +1,5 @@
+ // This program sorts employee salaries using Max Heap Sort and Min Heap Sort,
+// then compares their execution times in nanoseconds and microseconds.
 #include <iostream>
 #include <vector>
 #include <chrono>
