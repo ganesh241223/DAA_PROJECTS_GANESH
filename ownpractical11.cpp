@@ -1,3 +1,6 @@
+// This program implements Bubble Sort, Selection Sort, Insertion Sort,
+// Merge Sort, and Quick Sort to sort randomly generated elements
+// and compare their execution times in milliseconds.
 #include <iostream>
 #include <vector>
 #include <chrono>
