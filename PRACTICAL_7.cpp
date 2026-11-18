@@ -1,3 +1,4 @@
+// This program uses Dynamic Programming to find the minimum number of coins required to make a given amount.
 #include <iostream>
 #include <vector>
 #include <climits>
