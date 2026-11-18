@@ -1,5 +1,5 @@
-// This program implements the 0/1 Knapsack Problem using Dynamic Programming
-// to find the maximum total value of items within the given weight capacity.
+// This program implements the 0/1 Knapsack Problem using Dynamic Programming to find the maximum total value of items within the given weight capacity.
+
 #include <iostream>
 #include <vector>
 using namespace std;
