@@ -1,3 +1,4 @@
+// This program implements Prim's Algorithm to find the Minimum Spanning Tree (MST) of a weighted graph with minimum total cost.
 #include <iostream>
 #include <climits>
 using namespace std;
