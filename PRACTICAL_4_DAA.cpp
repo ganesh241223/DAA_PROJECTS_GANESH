@@ -1,3 +1,4 @@
+// This program calculates the power of a number using iterative and recursive methods and compares their execution times.
 #include <iostream>
 #include <chrono>
 
