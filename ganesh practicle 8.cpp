@@ -1,3 +1,5 @@
+// This program implements Depth First Search (DFS) and Breadth First Search (BFS)
+// to traverse an undirected graph and compare their execution times in nanoseconds.
 #include <iostream>
 #include <vector>
 #include <queue>
