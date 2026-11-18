@@ -1,5 +1,5 @@
-// This program implements Linear Search and Binary Search to find a given element
-// in an array and compares their execution times in microseconds.
+// This program implements Linear Search and Binary Search to find a given element in an array and compares their execution times in microseconds.
+
 #include <iostream>
 #include <vector>
 #include <chrono>
